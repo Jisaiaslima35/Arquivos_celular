@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>todolist</title>
+  <style>
+  *{
+    margin: 0px;
+    padding: 0px;
+  }
+    body{
+      text-align: center;
+      width: 100%;
+      background: darkcyan;
+      font-size: 26px;
+
+    }
+    nav{
+      background: black;
+      color: whitesmoke;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      font-size: 30px;
+      height: 98px;
+      margin-bottom: 30px;
+      
+    }
+    section{
+      font-weight: bold;
+      
+    }
+    input,button{
+      width: 210px;
+      height: 40px;
+      border-radius: 15px;
+      
+    }
+    h3{
+      margin-bottom: 20px;
+    }
+    
+  </style>
+</head>
+
+<body>
+  
+  <header>
+    <nav>
+     <strong>todo list </strong>
+        <strong>todoList 1.7</strong>
+    </nav>
+  </header>
+  <section>
+    <h3>Lista De Tarrefas </h3>
+    <input type="text" id="todoInput" placeholder="Digite Uma Tarefa" required> <br> 
+    <button onclick="salvar()">SALVAR</button>
+  </section>
+  <div id="maim">
+    <ul id="todolist">
+      
+    </ul>
+    
+  </div>
+
+<script>
+  function salvar(){
+    var todoInput = document.getElementById('todoInput');
+    var todoList = document.getElementById('todolist');
+    var todo = document.getElementById('maim');
+    
+    if(todoInput == '' || todoInput == null){
+      alert('preencha o campo a baixo!!')
+    }
+    
+    var todoDiv = document.createElement('div');
+    var todoLi = document.createElement('li'); // Alterado para <li>
+    
+    todoLi.textContent = todoInput.value;
+    
+    todoInput.value = '';
+    todoInput.focus();
+    
+    todoList.appendChild(todoLi);
+    todoDiv.appendChild(todoList);
+    todo.appendChild(todoDiv);
+  }
+</script>
+
+</body>
+
+</html>
